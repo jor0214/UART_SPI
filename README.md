@@ -81,6 +81,7 @@ These bits can be located in the Nucleo STM32l432 reference manual:
 *Figure 2: Reference manual showing Bit 14 USART1*
 
 **USART2**
+
 ![image](https://github.com/user-attachments/assets/ed30dfe9-adea-4d77-bdd7-bbf5e23c03c8)
 
 *Figure 3: Reference manual showing USART2 RCC*

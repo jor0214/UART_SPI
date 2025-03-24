@@ -112,6 +112,7 @@ USART1->CR1 =  (1 << 3) | (1 << 2) | (1 << 0);  // Enable TX, RX, and USART
 USART2->CR1 =  (1 << 3) | (1 << 2) | (1 << 0);
 ```
 **Control Register 1 (USART1, USART2)**
+
 ![image](https://github.com/user-attachments/assets/8f106633-1200-4c1e-85f5-9b7609b31d6c)
 *Figure 6: Control register 1 showing TE and RE*
 

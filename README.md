@@ -73,16 +73,20 @@ RCC->APB2ENR |= (1 << 14); // Enable USART1 clock
 These bits can be located in the Nucleo STM32l432 reference manual:
 **USART1**
 ![image](https://github.com/user-attachments/assets/73726d1c-21c2-4d66-8919-628dbc14e7f4)
+
 *Figure 1: Reference manual showing USART1 RCC*
 
 ![image](https://github.com/user-attachments/assets/7efb780a-6f6e-4e9f-a9a6-0335249f2aff)
+
 *Figure 2: Reference manual showing Bit 14 USART1*
 
 **USART2**
 ![image](https://github.com/user-attachments/assets/ed30dfe9-adea-4d77-bdd7-bbf5e23c03c8)
+
 *Figure 3: Reference manual showing USART2 RCC*
 
 ![image](https://github.com/user-attachments/assets/a960f7ff-7d25-4fe1-ba49-984219ad92d8)
+
 *Figure 4: Reference manual showing Bit 17*
 
 ### GPIO Configuration for USART Pins

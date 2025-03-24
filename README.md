@@ -72,19 +72,17 @@ RCC->APB2ENR |= (1 << 14); // Enable USART1 clock
 ```
 These bits can be located in the Nucleo STM32l432 reference manual:
 **USART1**
-![Reference manual page for USART1 RCC page ](image.png)
+![image](https://github.com/user-attachments/assets/73726d1c-21c2-4d66-8919-628dbc14e7f4)
 *Figure 1: Reference manual showing USART1 RCC*
 
-![Bit14 for USART1](image-1.png)
-
+![image](https://github.com/user-attachments/assets/7efb780a-6f6e-4e9f-a9a6-0335249f2aff)
 *Figure 2: Reference manual showing Bit 14 USART1*
 
 **USART2**
-![Reference manual page for USART2 RCC page 220](image-2.png)
+![image](https://github.com/user-attachments/assets/ed30dfe9-adea-4d77-bdd7-bbf5e23c03c8)
 *Figure 3: Reference manual showing USART2 RCC*
 
-![Bit17 for USART2](image-3.png)
-
+![image](https://github.com/user-attachments/assets/a960f7ff-7d25-4fe1-ba49-984219ad92d8)
 *Figure 4: Reference manual showing Bit 17*
 
 ### GPIO Configuration for USART Pins
@@ -98,7 +96,7 @@ pinMode(GPIOA,15,2); // Set PA15 to alternate function mode (USART2 RX)
 selectAlternateFunction(GPIOA,15,3); // AF3 for USART2 RX
 ```
 **STM32l432 Datasheet: Alternative Functions**
-![Alternative function pin mapping for USART1 and USART2](image-4.png)
+![image](https://github.com/user-attachments/assets/cf132ca5-d7ed-490f-b5aa-5429f9672191)
 *Figure 5: Reference manual showing alternative function table for USART*
 
 #### Enabling USART
@@ -109,7 +107,7 @@ USART1->CR1 =  (1 << 3) | (1 << 2) | (1 << 0);  // Enable TX, RX, and USART
 USART2->CR1 =  (1 << 3) | (1 << 2) | (1 << 0);
 ```
 **Control Register 1 (USART1, USART2)**
-![Control register 1 showing TE and RE](image-5.png)
+![image](https://github.com/user-attachments/assets/8f106633-1200-4c1e-85f5-9b7609b31d6c)
 *Figure 6: Control register 1 showing TE and RE*
 
 #### Transmitting Data
@@ -148,7 +146,7 @@ void USART1_IRQHandler(void)
     }
 }
 ```
-![ Bit assignments for RXNE flag and TC](image-6.png)
+![image](https://github.com/user-attachments/assets/b7b2e395-f213-43a1-b5ae-f7f3a56981b5)
 *Figure 7: Bit assignments for RXNE flag and TC*
 ## Circular Buffer
 A **circular buffer** efficiently stores incoming data, especially in asynchronous situations like USART communication. It overwrites the oldest data when full, ensuring continuous data capture without manual reset.
@@ -183,14 +181,14 @@ The **SPI (Serial Peripheral Interface)** is used to communicate with the LCD sc
 | **RES** (Reset) | Resets LCD module | **PA3 (RES)** |
 | **DC** (Data/Command) | Switches between data & command | **PA8 (DC)** |
 
-![pin mapping for SPI](image-7.png)
+![image](https://github.com/user-attachments/assets/727740fb-2789-4435-b52b-64dca5b93227)
 *Figure 8: Pin mapping for SPI in alternative function table*
 
 ## Circuit Diagram  
 
 The Kicad Schematic below shows the wiring connections between the microcontroller, SPI LCD, and USART communication interfaces.  
 
-![ Kicad schematic](image-8.png)
+![image](https://github.com/user-attachments/assets/62267e01-253a-49ae-aae5-63909b5f168c)
 *Figure 9: Kicad schematic of project layout*
 
 ### Pin Connections  
@@ -225,13 +223,13 @@ To identify  the issue, a logic analyzer was used. This showed that the TX pin w
 Following investigation, the input buffer size was deemed too small and so data was being lost. 
 
 After increasing the size of the buffer, the logic analyzer then showed the following:
-![alt text](image-9.png)
+![image](https://github.com/user-attachments/assets/486a645a-621d-4aaf-a828-5479cce4fc89)
 *Figure 10: Logic analyzer showing the start of the message exchange with a hello.*
-![alt text](image-10.png)
+![image](https://github.com/user-attachments/assets/985d579c-ad94-4195-8920-47ad5b535fe6)
 *Figure 11: Logic anaylzer showing USART2 to confirm a message being sent.*
-![alt text](image-11.png)
+![image](https://github.com/user-attachments/assets/aef3329d-8117-438d-9f31-c67798111e59)
 *Figure 12: Logic analyzer showing message being recieved.*
-![alt text](image-12.png)
+![image](https://github.com/user-attachments/assets/be9698be-23b6-44b9-b440-9adc1dec6ea4)
 *Figure 13: Logic analyzer showing SPI displaying messages.*
 
 ## Conclusion  
